@@ -1,0 +1,11 @@
+name: PlatinumAntiCheat
+main: com.gmail.Annarkwin.Platinum.AntiCheat.AntiCheat
+version: 1.0
+api-version: 1.16
+depend: [PlatinumAPI]
+
+commands:
+  Anticheat:
+    usage: /Anticheat help
+    description: ""
+    permission: platinum.anticheat
