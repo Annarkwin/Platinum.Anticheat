@@ -4,6 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.gmail.Annarkwin.Platinum.AntiCheat.Commands.AntiCheat.CommandAntiCheat;
 import com.gmail.Annarkwin.Platinum.AntiCheat.Listeners.ListenerAntiCheat;
+import com.gmail.Annarkwin.Platinum.AntiCheat.Listeners.ListenerLogging;
 
 
 public class AntiCheat extends JavaPlugin {
@@ -37,5 +38,6 @@ public class AntiCheat extends JavaPlugin {
 	
 	public void enableListeners(){
 		getServer().getPluginManager().registerEvents(new ListenerAntiCheat(), this);
+		getServer().getPluginManager().registerEvents(new ListenerLogging(), this);
 	}
 }

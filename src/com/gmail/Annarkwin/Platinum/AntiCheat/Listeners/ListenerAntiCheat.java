@@ -61,15 +61,6 @@ public class ListenerAntiCheat implements Listener {
 		}
 	}
 	
-//	//Drowned Duplication
-//	@EventHandler (ignoreCancelled = true, priority = EventPriority.HIGH)
-//	public void zombieDrowned(EntityTransformEvent e) {
-//		if (e.getTransformedEntity().getType() == EntityType.DROWNED) {
-//			Drowned drowned = (Drowned) e.getTransformedEntity();
-//			drowned.getEquipment().setItemInMainHand(new ItemStack(Material.AIR));
-//		}
-//	}
-	
 	//Check if given material is a pressure plate
 	public boolean isPressurePlate(Material type) {
 		for (Material plate : pressure_plates)
