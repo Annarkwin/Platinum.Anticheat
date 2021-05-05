@@ -6,38 +6,50 @@ import com.gmail.Annarkwin.Platinum.AntiCheat.Commands.AntiCheat.CommandAntiChea
 import com.gmail.Annarkwin.Platinum.AntiCheat.Listeners.ListenerAntiCheat;
 import com.gmail.Annarkwin.Platinum.AntiCheat.Listeners.ListenerLogging;
 
+public class AntiCheat extends JavaPlugin
+{
 
-public class AntiCheat extends JavaPlugin {
-	
 	@Override
-	public void onEnable(){		
-		//Load configuration serializable classes
-		registerSerializables();
-		
-		//Retrieve file data
+	public void onEnable()
+	{
 
-		//Enable plugin features
+		// Load configuration serializable classes
+		registerSerializables();
+
+		// Retrieve file data
+
+		// Enable plugin features
 		enableListeners();
 		enableCommands();
-		
-		//Initialize update event
+
+		// Initialize update event
 	}
-	
+
 	@Override
-	public void onDisable(){
-		//Save data
+	public void onDisable()
+	{
+
+		// Save data
 	}
-	
-	private void registerSerializables() {
-		
+
+	private void registerSerializables()
+	{
+
 	}
-	
-	public void enableCommands(){
+
+	public void enableCommands()
+	{
+
 		getCommand("AntiCheat").setExecutor(new CommandAntiCheat());
+
 	}
-	
-	public void enableListeners(){
+
+	public void enableListeners()
+	{
+
 		getServer().getPluginManager().registerEvents(new ListenerAntiCheat(), this);
 		getServer().getPluginManager().registerEvents(new ListenerLogging(), this);
+
 	}
+
 }
