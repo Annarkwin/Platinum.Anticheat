@@ -1,49 +1,50 @@
 package com.gmail.Annarkwin.Platinum.AntiCheat.Commands.AntiCheat;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
-import com.gmail.Annarkwin.Platinum.API.MainCommand;
-import com.gmail.Annarkwin.Platinum.API.Subcommand;
+import com.gmail.Annarkwin.Platinum.API.PlatinumCommand;
+import com.gmail.Annarkwin.Platinum.API.PlatinumMainCommand;
 
-public class CommandAntiCheat implements CommandExecutor , MainCommand
+public class CommandAntiCheat extends PlatinumMainCommand
 {
 
-	private final Subcommand[] subcommands =
-	{
-			new AntiCheatHelp(this)
-	};
-
-	public Subcommand[] getSubcommands()
+	public CommandAntiCheat( String name, String permission, boolean player, String description, String usage )
 	{
 
-		return subcommands;
+		super(name, permission, player, description, usage);
 
 	}
 
 	@Override
-	public boolean onCommand( CommandSender sender, Command cmd, String label, String[] args )
+	public boolean run( CommandSender sender, String cmdname, String[] cmdargs )
 	{
 
-		boolean isplayer = sender instanceof Player;
-		if (args.length > 0)
-			for (Subcommand command : subcommands)
+		if (cmdargs.length > 0)
+		{
+
+			PlatinumCommand child = getChild(cmdargs[0]);
+
+			if (child != null)
 			{
 
-				if (command.getName().equalsIgnoreCase(args[0]) && (!command.isPlayerOnly() || isplayer))
+				if (sender.hasPermission(child.getPermissionHook()))
 				{
 
-					if (sender.hasPermission(command.getPermission()))
-						command.run(sender, args);
-					else
-						sender.sendMessage("§4[Error]:§f You don't have permission for that command");
+					return child.run(sender, cmdname, cmdargs);
+
+				}
+				else
+				{
+
+					sender.sendMessage("Error: You don't have permission to execute that command");
 					return true;
 
 				}
 
 			}
+
+		}
+
 		return false;
 
 	}

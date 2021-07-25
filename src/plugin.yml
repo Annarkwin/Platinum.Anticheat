@@ -8,4 +8,4 @@ commands:
   Anticheat:
     usage: /Anticheat help
     description: ""
-    permission: platinum.anticheat
+    permission: platinum.command.anticheat
