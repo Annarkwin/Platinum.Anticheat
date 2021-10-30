@@ -6,7 +6,7 @@ import com.gmail.Annarkwin.Platinum.API.PlatinumCommand;
 
 public class AntiCheatTestCommand extends PlatinumCommand
 {
-	
+
 	public AntiCheatTestCommand( String name, String permission, boolean player, String description, String usage )
 	{
 

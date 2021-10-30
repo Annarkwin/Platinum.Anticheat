@@ -10,7 +10,7 @@ import com.gmail.Annarkwin.Platinum.API.PlatinumCommand;
 
 public class AntiCheatHelp extends PlatinumCommand implements HelpCommand
 {
-	
+
 	public AntiCheatHelp( String name, String permission, boolean player, String description, String usage )
 	{
 
@@ -73,6 +73,7 @@ public class AntiCheatHelp extends PlatinumCommand implements HelpCommand
 			CommandHelper.sendHelp(sender, entries, "Anticheat", 1);
 
 		}
+
 		return true;
 
 	}

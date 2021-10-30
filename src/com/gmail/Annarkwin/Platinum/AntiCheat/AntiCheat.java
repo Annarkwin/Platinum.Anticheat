@@ -42,16 +42,20 @@ public class AntiCheat extends JavaPlugin
 
 	public void enableCommands()
 	{
-		PlatinumMainCommand anticheat = new CommandAntiCheat("AntiCheat", "platinum.command.anticheat", true, "Anticheat commands", "/Anticheat help");
-		anticheat.addChildCommand(new AntiCheatHelp("help", "platinum.command.anticheat.help", true, "Get anticheat command help", "/Anticheat help"));
-		anticheat.addChildCommand(new AntiCheatTestCommand("test", "platinum.command.anticheat.test", true, "Anticheat test subcommand", "/Anticheat test"));
+
+		PlatinumMainCommand anticheat = new CommandAntiCheat("AntiCheat", "platinum.command.anticheat", true,
+				"Anticheat commands", "/Anticheat help");
+		anticheat.addChildCommand(new AntiCheatHelp("help", "platinum.command.anticheat.help", true,
+				"Get anticheat command help", "/Anticheat help"));
+		anticheat.addChildCommand(new AntiCheatTestCommand("test", "platinum.command.anticheat.test", true,
+				"Anticheat test subcommand", "/Anticheat test"));
 		getCommand("AntiCheat").setExecutor(anticheat);
 
 	}
 
 	public void enableListeners()
 	{
-		
+
 		getServer().getPluginManager().registerEvents(new ListenerAntiCheat(), this);
 		getServer().getPluginManager().registerEvents(new ListenerLogging(), this);
 
